@@ -1,0 +1,21 @@
+Given an integer x, return true if x is a palindrome, and false otherwise.
+Example 1:
+Input: x = 121
+Output: true
+Explanation: 121 reads as 121 from left to right and from right to left.
+
+P.S - Without converting it into a string. Otherwise we can just say x[::-1] and compare it with x to check.
+
+Code:
+
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        if x<0:
+            return False
+        initial = x
+        reverse = 0
+        while x>0:
+            last = x%10
+            reverse = reverse * 10 + last
+            x=x//10
+        return initial == reverse
